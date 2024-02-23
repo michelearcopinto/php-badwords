@@ -1,7 +1,7 @@
 <?php
+$name_surname = trim($_GET['name_surname']);
 $string = trim($_GET['user_message']);
 $string_converted = strtolower($string);
-$name_surname = trim(strtolower($_GET['name_surname']));
 $string_no_spaces = str_replace(' ', '', $string);
 $string_array = explode(' ', $string);
 
@@ -14,6 +14,7 @@ $parolacce = [
 ];
 $censored_message = str_replace($parolacce, '***', $string_converted);
 $censored_message_no_spaces = str_replace(' ', '', $censored_message);
+$censored_message_array = explode(' ', $censored_message);
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +29,19 @@ $censored_message_no_spaces = str_replace(' ', '', $censored_message);
 </head>
 
 <body>
-    <div class="card text-start container mt-5">
+    <div class="card text-start container mt-5 p-4">
         <h1 class="card-title">Risposta del server</h1>
         <div class="card-body">
             <ul>
                 <li><strong>Nome e Cognome:</strong> <?php echo $name_surname ?>;</li>
                 <li><strong>Messaggio utente:</strong> <?php echo $string ?>;</li>
+                <li><strong>Array messaggio:</strong> <?php echo var_dump($string_array) ?></li>
                 <li><strong>Lunghezza messaggio:</strong> <?php echo strlen($string_no_spaces) ?> caratteri;</li>
-                <li><strong>Array messaggio:</strong> <?php echo var_dump($string_array); ?>;</li>
+            </ul>
+            <hr>
+            <ul>
                 <li><strong>Messaggio utente censurato:</strong> <?php echo $censored_message ?>;</li>
+                <li><strong>Array messaggio censurato:</strong> <?php echo var_dump($censored_message_array) ?></li>
                 <li><strong>Lunghezza messaggio censurato:</strong> <?php echo strlen($censored_message_no_spaces) ?> caratteri;</li>
             </ul>
         </div>
