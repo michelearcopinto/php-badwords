@@ -13,11 +13,11 @@
     <form action="response.php" method="GET" class="container d-flex flex-column gap-3 mt-5">
         <div class="form-group">
             <label for="exampleInputEmail1">Nome e Cognome:</label>
-            <input type="text" class="form-control" id="name_surname" name="name_surname" aria-describedby="name_surname" placeholder="Inserisci nome e cognome">
+            <input required type="text" class="form-control" id="name_surname" name="name_surname" aria-describedby="name_surname" placeholder="Inserisci nome e cognome">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Inserisci frase:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="user_message" rows="3"></textarea>
+            <textarea required class="form-control" id="exampleFormControlTextarea1" name="user_message" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

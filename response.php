@@ -1,6 +1,7 @@
 <?php
 $string = trim($_GET['user_message']);
-$name_surname = trim($_GET['name_surname']);
+$string_converted = strtolower($string);
+$name_surname = trim(strtolower($_GET['name_surname']));
 $string_no_spaces = str_replace(' ', '', $string);
 $string_array = explode(' ', $string);
 
@@ -11,7 +12,7 @@ $parolacce = [
     "pezzo di merda", "stronza", "coglione", "porco", "pirlone", "zozzone", "pompino", "stronzata", "palle",
     "vaffanculo", "rompiscatole", "cane", "putrida", "tette", "culone", "pene", "palle", "schifo", "sborone"
 ];
-$censored_message = str_replace($parolacce, '***', $string);
+$censored_message = str_replace($parolacce, '***', $string_converted);
 $censored_message_no_spaces = str_replace(' ', '', $censored_message);
 ?>
 
